@@ -10,9 +10,7 @@ Grade on :	2021-06-22 22:23
 
 Graded by	: kim yaechan
 
-### DLL을 이용한 코로나 확진자 리스트 만들기
+### Stack을 이용한 정수간 덧셈 계산기 구현
 
-- Double Linked List 의 다음 기능 구현
-  * void AddtoDLLSorted(const T& el); // 추가 기능
-  * void deleteDLLSorted(const string& name); // 삭제 기능
-  * void printtDLLSorted(); // 출력 기능
+- Stack을 이용한 간단한 계산기 구현
+  * 사용자가 제공한 두개의 정수값에 대한 덧셈 수행
