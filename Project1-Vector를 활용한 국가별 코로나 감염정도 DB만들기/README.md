@@ -10,7 +10,7 @@ Grade on : 2021-06-22 00:55
 
 Graded by	: kim yaechan
 
-### Vector를 활용한 국가별 코로나 감염정도 DB 구
+### Vector를 활용한 국가별 코로나 감염정도 DB 구축
 
 
 - Vector를 활용한 국가별 코로나 발병리스트 생성
