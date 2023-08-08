@@ -4,8 +4,8 @@
 
 using namespace std;
 
-char Area[12][12]; // 10 X 10 ÀÇ ÇüÅÂ ( Å×µÎ¸®¸¦ ¸¸µé±â À§ÇØ¼­ 12 X 12 ·Î ÇÒ´ç )
-// ¸ðµçÇÔ¼ö¿¡¼­ ½±°Ô Á¢±ÙÀÌ °¡´ÉÇÏµµ·Ï Àü¿ªº¯¼ö·Î ÁöÁ¤
+char Area[12][12]; // 10 X 10 ì˜ í˜•íƒœ ( í…Œë‘ë¦¬ë¥¼ ë§Œë“¤ê¸° ìœ„í•´ì„œ 12 X 12 ë¡œ í• ë‹¹ )
+// ëª¨ë“ í•¨ìˆ˜ì—ì„œ ì‰½ê²Œ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ë„ë¡ ì „ì—­ë³€ìˆ˜ë¡œ ì§€ì •
 
 void AreaFrame() {
 	for (int i = 0; i < 12; i++) {
@@ -120,7 +120,7 @@ int main() {
 
 	int Choice;
 
-	AreaFrame(); // Æ² Á¦ÀÛ ( Å×µÎ¸®¸¦ 'b' ·Î ÃÊ±âÈ­ )
+	AreaFrame(); // í‹€ ì œìž‘ ( í…Œë‘ë¦¬ë¥¼ 'b' ë¡œ ì´ˆê¸°í™” )
 
 	while (true) {
 		static int count = 0;
@@ -132,9 +132,9 @@ int main() {
 		cout << endl;
 
 		if (Choice == 1) {
-			AreaRandomReset(); // ¼¿À» ·£´ýÀ¸·Î °ªÀ» ÃÊ±âÈ­
-			AreaPrintSell(); // ÇöÀç ¼¿ÀÇ ±¸¼º º¸ÀÌ±â
-			CheckAndPrint(); // ÈòÅ¸ÀÏÀÇ °¹¼ö¿Í °¢ »çÀÌÁî¸¦ °è»êÇÏ°í Ãâ·Â
+			AreaRandomReset(); // ì…€ì„ ëžœë¤ìœ¼ë¡œ ê°’ì„ ì´ˆê¸°í™”
+			AreaPrintSell(); // í˜„ìž¬ ì…€ì˜ êµ¬ì„± ë³´ì´ê¸°
+			CheckAndPrint(); // í°íƒ€ì¼ì˜ ê°¯ìˆ˜ì™€ ê° ì‚¬ì´ì¦ˆë¥¼ ê³„ì‚°í•˜ê³  ì¶œë ¥
 		}
 		else if (Choice == 2) {
 			cout << "System End ..." << endl;
