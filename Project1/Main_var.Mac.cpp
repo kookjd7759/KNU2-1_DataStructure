@@ -13,11 +13,11 @@ void LNsystem()
 	cout << endl << endl << "-----------------------------------------------" << endl << endl;
 }
 
-void Again(bool *AnsCheck, int *Ans, int number) // ´Ù¸¥ °ªÀ» ÀÔ·ÂÇßÀ» ¶§ ¹İº¹ÇØÁÜ
+void Again(bool *AnsCheck, int *Ans, int number) // ë‹¤ë¥¸ ê°’ì„ ì…ë ¥í–ˆì„ ë•Œ ë°˜ë³µí•´ì¤Œ
 {
-	while (true) { // ´Ù¸¥ °ªÀ» ÀÔ·ÂÇßÀ» ¶§
+	while (true) { // ë‹¤ë¥¸ ê°’ì„ ì…ë ¥í–ˆì„ ë•Œ
 		if (!*AnsCheck)
-			cout << "Àß¸øµÈ °ªÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä. \n";
+			cout << "ì˜ëª»ëœ ê°’ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”. \n";
 
 		cout << ":"; cin >> *Ans;
 
@@ -31,7 +31,7 @@ void Again(bool *AnsCheck, int *Ans, int number) // ´Ù¸¥ °ªÀ» ÀÔ·ÂÇßÀ» ¶§ ¹İº¹ÇØ
 	}
 }
 
-typedef struct c_info // ±¹°¡¸í, °¨¿°ÀÚ¼ö, »ç¸ÁÀÚ¼ö, »ç¸Á·ü
+typedef struct c_info // êµ­ê°€ëª…, ê°ì—¼ììˆ˜, ì‚¬ë§ììˆ˜, ì‚¬ë§ë¥ 
 {
 	string m_name;
 	int m_num_of_infection;
@@ -44,8 +44,8 @@ class Corona_nation
 public:
 	void insert_data();
 	bool delete_data(string name);
-	void print_info(int option, int IsUp); // optin: 1. ÀÌ¸§¼ø, 2. °¨¿°ÀÚ¼ø, 3. »ç¸ÁÀÚ¼ø, 4. »ç¸Á·ü¼ø
-	void EnterBaseData(); // 8°³ ±¹°¡ÀÇ µ¥ÀÌÅÍ·Î ÃÊ±âÈ­
+	void print_info(int option, int IsUp); // optin: 1. ì´ë¦„ìˆœ, 2. ê°ì—¼ììˆœ, 3. ì‚¬ë§ììˆœ, 4. ì‚¬ë§ë¥ ìˆœ
+	void EnterBaseData(); // 8ê°œ êµ­ê°€ì˜ ë°ì´í„°ë¡œ ì´ˆê¸°í™”
 
 private:
 	vector<C_INFO> m_data;
@@ -83,11 +83,11 @@ bool cmp_death_rate(const C_INFO& a, const C_INFO& b)
 void Corona_nation::insert_data()
 {
 	C_INFO data;
-	cout << "³ª¶ó :";
+	cout << "ë‚˜ë¼ :";
 	cin >> data.m_name;
-	cout << "°¨¿°ÀÚ¼ö :";
+	cout << "ê°ì—¼ììˆ˜ :";
 	cin >> data.m_num_of_infection;
-	cout << "»ç¸ÁÀÚ¼ö :";
+	cout << "ì‚¬ë§ììˆ˜ :";
 	cin >> data.m_num_of_death;
 	data.m_death_rate = (data.m_num_of_death / (double)data.m_num_of_infection) * 100.0f;
 
@@ -114,10 +114,10 @@ void Corona_nation::print_info(int option, int IsUp)
 {
 	switch (option)
 	{
-	case 1: sort(m_data.begin(), m_data.end(), cmp_name); break; // ÀÌ¸§¼ø
-	case 2: sort(m_data.begin(), m_data.end(), cmp_infection); break; // °¨¿°ÀÚ¼ø
-	case 3: sort(m_data.begin(), m_data.end(), cmp_death); break; // »ç¸ÁÀÚ¼ø
-	case 4: sort(m_data.begin(), m_data.end(), cmp_death_rate); break; // »ç¸Á·ü¼ø
+	case 1: sort(m_data.begin(), m_data.end(), cmp_name); break; // ì´ë¦„ìˆœ
+	case 2: sort(m_data.begin(), m_data.end(), cmp_infection); break; // ê°ì—¼ììˆœ
+	case 3: sort(m_data.begin(), m_data.end(), cmp_death); break; // ì‚¬ë§ììˆœ
+	case 4: sort(m_data.begin(), m_data.end(), cmp_death_rate); break; // ì‚¬ë§ë¥ ìˆœ
 	default: break;
 	}
 
@@ -167,11 +167,11 @@ int main(void)
 	bool AnsCheck = true;
 	
 	
-	// ¿ÀÇÁ´×
-	cout << " - HW1-Vector¸¦ È°¿ëÇÑ ±¹°¡º° ÄÚ·Î³ª °¨¿°Á¤µµ DB¸¸µé±â - " << endl << " 202024029 ±¹µ¿±Õ" << endl << endl;
-	cout << " º» ÇÁ·Î±×·¥¿¡ »ç¿ëµÇ¾îÁø µ¥ÀÌÅÍ´Â \'ÄÚ·Î³ª ¶óÀÌºê | ½Ç½Ã°£ È®ÁøÀÚ ÇöÈ²\'" << endl;
-	cout << "»çÀÌÆ®¿¡¼­ Áı°èµÇ¾îÁø µ¥ÀÌÅÍ¸¦ »ç¿ëÇÏ¿´À¸¸ç [2021.04.03 17½Ã 10ºĞ]À» ±âÁØÀ¸·Î ÇÕ´Ï´Ù." << endl << endl;
-	cout << "[1] ½ÇÇà" << endl;
+	// ì˜¤í”„ë‹
+	cout << " - HW1-Vectorë¥¼ í™œìš©í•œ êµ­ê°€ë³„ ì½”ë¡œë‚˜ ê°ì—¼ì •ë„ DBë§Œë“¤ê¸° - " << endl << " 202024029 êµ­ë™ê· " << endl << endl;
+	cout << " ë³¸ í”„ë¡œê·¸ë¨ì— ì‚¬ìš©ë˜ì–´ì§„ ë°ì´í„°ëŠ” \'ì½”ë¡œë‚˜ ë¼ì´ë¸Œ | ì‹¤ì‹œê°„ í™•ì§„ì í˜„í™©\'" << endl;
+	cout << "ì‚¬ì´íŠ¸ì—ì„œ ì§‘ê³„ë˜ì–´ì§„ ë°ì´í„°ë¥¼ ì‚¬ìš©í•˜ì˜€ìœ¼ë©° [2021.04.03 17ì‹œ 10ë¶„]ì„ ê¸°ì¤€ìœ¼ë¡œ í•©ë‹ˆë‹¤." << endl << endl;
+	cout << "[1] ì‹¤í–‰" << endl;
 
 	Again(&AnsCheck, &Ans_1, 2);
 	
@@ -181,28 +181,28 @@ int main(void)
 
 	LNsystem();
 	
-	while(true) { // ¸ŞÀÎ ·çÇÁ ½ÃÀÛ
+	while(true) { // ë©”ì¸ ë£¨í”„ ì‹œì‘
 
-		if (Ans_1 == 0) { // ¸ŞÀÎ
-			cout << "[1] °¨¿°Á¤µµ È®ÀÎÇÏ±â \n[2] µ¥ÀÌÅÍ »èÁ¦ÇÏ±â \n[3] µ¥ÀÌÅÍ Ãß°¡ÇÏ±â \n[4] Á¾·á" << endl;
+		if (Ans_1 == 0) { // ë©”ì¸
+			cout << "[1] ê°ì—¼ì •ë„ í™•ì¸í•˜ê¸° \n[2] ë°ì´í„° ì‚­ì œí•˜ê¸° \n[3] ë°ì´í„° ì¶”ê°€í•˜ê¸° \n[4] ì¢…ë£Œ" << endl;
 
 			Again(&AnsCheck, &Ans_1, 4);
 
 			if (Ans_1 == 4) {
-				cout << "ÇÁ·Î±×·¥À» Á¾·á." << endl;
+				cout << "í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œ." << endl;
 				LNsystem();
 				return 0;
 			}
 		}
 
-		if (Ans_1 == 1) { // 1¹ø ¼±ÅÃÁö . °¨¿°Á¤µµ È®ÀÎÇÏ±â
+		if (Ans_1 == 1) { // 1ë²ˆ ì„ íƒì§€ . ê°ì—¼ì •ë„ í™•ì¸í•˜ê¸°
 			LNsystem();
-			cout << "[1] ÀÌ¸§¼ø \n[2] °¨¿°ÀÚ¼ø \n[3] »ç¸ÁÀÚ¼ø \n[4] »ç¸Á·ü¼ø" << endl;
+			cout << "[1] ì´ë¦„ìˆœ \n[2] ê°ì—¼ììˆœ \n[3] ì‚¬ë§ììˆœ \n[4] ì‚¬ë§ë¥ ìˆœ" << endl;
 
 			Again(&AnsCheck, &Ans_2, 4);
 			Choice = Ans_2;
 
-			cout << "[1] ¿À¸§Â÷¼ø \n[2] ³»¸²Â÷¼ø" << endl;
+			cout << "[1] ì˜¤ë¦„ì°¨ìˆœ \n[2] ë‚´ë¦¼ì°¨ìˆœ" << endl;
 			Again(&AnsCheck, &Ans_3, 4);
 			if (Ans_3 == 1)
 				global_IsUp = true;
@@ -212,7 +212,7 @@ int main(void)
 			LNsystem();
 			corona_nation.print_info(Choice, global_IsUp);
 
-			cout << "[1] ¸ŞÀÎÀ¸·Î \n[2] ´Ù½Ã¼±ÅÃ" << endl;
+			cout << "[1] ë©”ì¸ìœ¼ë¡œ \n[2] ë‹¤ì‹œì„ íƒ" << endl;
 
 			Again(&AnsCheck, &Ans_3, 2);
 
@@ -226,15 +226,15 @@ int main(void)
 			LNsystem();
 		}
 		
-		if (Ans_1 == 2) { // 2¹ø ¼±ÅÃÁö . µ¥ÀÌÅÍ »èÁ¦ÇÏ±â
+		if (Ans_1 == 2) { // 2ë²ˆ ì„ íƒì§€ . ë°ì´í„° ì‚­ì œí•˜ê¸°
 			LNsystem();
-			cout << "»èÁ¦ÇÒ µ¥ÀÌÅÍÀÇ ³ª¶ó ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä." << endl;
+			cout << "ì‚­ì œí•  ë°ì´í„°ì˜ ë‚˜ë¼ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”." << endl;
 
 			bool check;
 			
-			while (true) { // ¾ø´Â ±¹°¡ÀÇ ÀÌ¸§À» ÀÔ·ÂÇßÀ»¶§
+			while (true) { // ì—†ëŠ” êµ­ê°€ì˜ ì´ë¦„ì„ ì…ë ¥í–ˆì„ë•Œ
 				if (!AnsCheck)
-					cout << "ÀÏÄ¡ÇÏ´Â ±¹°¡ÀÇ ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä. \n";
+					cout << "ì¼ì¹˜í•˜ëŠ” êµ­ê°€ì˜ ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”. \n";
 
 				cout << ":"; cin >> DelName;
 				check = corona_nation.delete_data(DelName);
@@ -248,18 +248,18 @@ int main(void)
 				}
 			}
 
-			cout << "»èÁ¦°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù." << endl;
+			cout << "ì‚­ì œê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 			LNsystem();
 
 			LNsystem();
 			Ans_1 = 0; Ans_2 = NULL, Ans_3 = NULL;
 		}
 
-		if (Ans_1 == 3) { // 3¹ø ¼±ÅÃÁö . µ¥ÀÌÅÍ Ãß°¡ÇÏ±â
+		if (Ans_1 == 3) { // 3ë²ˆ ì„ íƒì§€ . ë°ì´í„° ì¶”ê°€í•˜ê¸°
 			LNsystem();
 			corona_nation.insert_data();
 
-			cout << "ÀÔ·ÂÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù." << endl;
+			cout << "ì…ë ¥ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 			LNsystem();
 
 			LNsystem();
