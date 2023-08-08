@@ -60,11 +60,11 @@ void DLL<T>::AddtoDLLSorted(const T& el)
     node->info = el;
     node->next = nullptr;
 
-    if (head == nullptr) { // ¸®½ºÆ®ÀÇ ¿ä¼Ò°¡ ¾øÀ» °æ¿ì
+    if (head == nullptr) { // ë¦¬ìŠ¤íŠ¸ì˜ ìš”ì†Œê°€ ì—†ì„ ê²½ìš°
         head = node;
         tail = node;
     }
-    else { // ¸®½ºÆ®°¡ ÇÏ³ª ÀÌ»óÀÇ ¿ä¼Ò¸¦ °¡Áö°í ÀÖÀ» °æ¿ì
+    else { // ë¦¬ìŠ¤íŠ¸ê°€ í•˜ë‚˜ ì´ìƒì˜ ìš”ì†Œë¥¼ ê°€ì§€ê³  ìˆì„ ê²½ìš°
         DLLNode<T>* ptr = head;
         int index = 0;
         bool isFind = false;
@@ -79,18 +79,18 @@ void DLL<T>::AddtoDLLSorted(const T& el)
             ptr = ptr->next;
         }
 
-        if (isFind == false) { // ¸®½ºÆ®ÀÇ °¡Àå µÚ¿¡ ¿ä¼Ò°¡ µé¾î°¡¾ß ÇÒ °æ¿ì
+        if (isFind == false) { // ë¦¬ìŠ¤íŠ¸ì˜ ê°€ì¥ ë’¤ì— ìš”ì†Œê°€ ë“¤ì–´ê°€ì•¼ í•  ê²½ìš°
             tail->next = node;
             tail = tail->next;
         }
         else {
-            if (index == 1) { // ¸®½ºÆ®ÀÇ Ã¹¹øÂ° ¿ä¼Ò¿¡ µé¾î°¡¾ß ÇÒ¶§
+            if (index == 1) { // ë¦¬ìŠ¤íŠ¸ì˜ ì²«ë²ˆì§¸ ìš”ì†Œì— ë“¤ì–´ê°€ì•¼ í• ë•Œ
                 DLLNode<T>* ptr = new DLLNode<T>();
                 ptr->next = head;
                 ptr->info = el;
                 head = ptr;
             }
-            else { // ¸®½ºÆ®ÀÇ °¡¿îµ¥¿¡ ¿ä¼Ò°¡ µé¾î°¡¾ß ÇÒ °æ¿ì
+            else { // ë¦¬ìŠ¤íŠ¸ì˜ ê°€ìš´ë°ì— ìš”ì†Œê°€ ë“¤ì–´ê°€ì•¼ í•  ê²½ìš°
                 DLLNode<T>* ptr = head;
                 DLLNode<T>* tmp = ptr;
                 DLLNode<T>* node = new DLLNode<T>;
@@ -134,20 +134,20 @@ void DLL<T>::deleteDLLSorted(const string& name)
         }
     }
 
-    if (isFind == false) { // Ã£Áö ¸øÇßÀ» °æ¿ì
-        cout << name << " ÀÌ¶ó´Â ÀÌ¸§À» °¡Áø ³ª¶ó´Â ¸®½ºÆ® ¾È¿¡ ¾ø½À´Ï´Ù. " << endl;
+    if (isFind == false) { // ì°¾ì§€ ëª»í–ˆì„ ê²½ìš°
+        cout << name << " ì´ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ë‚˜ë¼ëŠ” ë¦¬ìŠ¤íŠ¸ ì•ˆì— ì—†ìŠµë‹ˆë‹¤. " << endl;
     }
-    else if (index != 1 || index != size) { // »èÁ¦ÇÒ ¿ä¼Ò°¡ Áß°£ÀÇ ¿ä¼ÒÀÎ °æ¿ì
+    else if (index != 1 || index != size) { // ì‚­ì œí•  ìš”ì†Œê°€ ì¤‘ê°„ì˜ ìš”ì†Œì¸ ê²½ìš°
         tmp->next = ptr->next;
         delete ptr;
     }
     else { 
-        if (index == 1) { // »èÁ¦ÇÒ ¿ä¼Ò°¡ Ã¹¹øÂ° ¿ä¼ÒÀÎ °æ¿ì
+        if (index == 1) { // ì‚­ì œí•  ìš”ì†Œê°€ ì²«ë²ˆì§¸ ìš”ì†Œì¸ ê²½ìš°
             DLLNode<T>* ptr = head;
             head = ptr->next;
             delete ptr;
         }
-        else { // »èÁ¦ÇÒ ¿ä¼Ò°¡ ¸¶Áö¸· ¿ä¼ÒÀÎ °æ¿ì
+        else { // ì‚­ì œí•  ìš”ì†Œê°€ ë§ˆì§€ë§‰ ìš”ì†Œì¸ ê²½ìš°
             DLLNode<T>* ptr = head;
             DLLNode<T>* tmp = new DLLNode<T>;
 
@@ -200,10 +200,10 @@ void corona_nation::print_info()
 
 int main()
 {
-    // ¿ÀÇÁ´×
-    cout << " - HW2-DLLÀ» ÀÌ¿ëÇÑ ÄÚ·Î³ª È®ÁøÀÚ ¸®½ºÆ® ¸¸µé±â - " << endl << " 202024029 ±¹µ¿±Õ" << endl << endl;
-    cout << " º» ÇÁ·Î±×·¥¿¡ »ç¿ëµÇ¾îÁø µ¥ÀÌÅÍ´Â \'ÄÚ·Î³ª ¶óÀÌºê | ½Ç½Ã°£ È®ÁøÀÚ ÇöÈ²\'" << endl;
-    cout << " »çÀÌÆ®¿¡¼­ Áı°èµÇ¾îÁø µ¥ÀÌÅÍ¸¦ »ç¿ëÇÏ¿´À¸¸ç [2021.04.03 17½Ã 10ºĞ]À» ±âÁØÀ¸·Î ÇÕ´Ï´Ù." << endl << endl;
+    // ì˜¤í”„ë‹
+    cout << " - HW2-DLLì„ ì´ìš©í•œ ì½”ë¡œë‚˜ í™•ì§„ì ë¦¬ìŠ¤íŠ¸ ë§Œë“¤ê¸° - " << endl << " 202024029 êµ­ë™ê· " << endl << endl;
+    cout << " ë³¸ í”„ë¡œê·¸ë¨ì— ì‚¬ìš©ë˜ì–´ì§„ ë°ì´í„°ëŠ” \'ì½”ë¡œë‚˜ ë¼ì´ë¸Œ | ì‹¤ì‹œê°„ í™•ì§„ì í˜„í™©\'" << endl;
+    cout << " ì‚¬ì´íŠ¸ì—ì„œ ì§‘ê³„ë˜ì–´ì§„ ë°ì´í„°ë¥¼ ì‚¬ìš©í•˜ì˜€ìœ¼ë©° [2021.04.03 17ì‹œ 10ë¶„]ì„ ê¸°ì¤€ìœ¼ë¡œ í•©ë‹ˆë‹¤." << endl << endl;
 
     DLL<corona_nation> DLLdata;
     bool IsOn = true;
@@ -221,39 +221,39 @@ int main()
         static int Choice;
 
         cout << "-------------------------------------" << endl;
-        cout << "[1] ³ª¶ó Ãß°¡ÇÏ±â" << endl;
-        cout << "[2] ³ª¶ó »èÁ¦ÇÏ±â" << endl;
-        cout << "[3] ¸®½ºÆ® º¸±â" << endl;
-        cout << "[4] Á¾·á" << endl;
+        cout << "[1] ë‚˜ë¼ ì¶”ê°€í•˜ê¸°" << endl;
+        cout << "[2] ë‚˜ë¼ ì‚­ì œí•˜ê¸°" << endl;
+        cout << "[3] ë¦¬ìŠ¤íŠ¸ ë³´ê¸°" << endl;
+        cout << "[4] ì¢…ë£Œ" << endl;
         cout << "-------------------------------------" << endl;
         cout << ": "; cin >> Choice;
 
         switch (Choice)
         {
             case 1: {
-                cout << "³ª¶ó ¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä : ";
+                cout << "ë‚˜ë¼ ëª…ì„ ì…ë ¥í•˜ì„¸ìš” : ";
                 string name; cin >> name;
-                cout << "°¨¿°ÀÚ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ";
+                cout << "ê°ì—¼ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ";
                 int num1; cin >> num1;
-                cout << "»ç¸ÁÀÚ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ";
+                cout << "ì‚¬ë§ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ";
                 int num2; cin >> num2;
                 DLLdata.AddtoDLLSorted(corona_nation(name, num1, num2));
-                cout << endl << "Ãß°¡°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù." << endl;
+                cout << endl << "ì¶”ê°€ê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 
                 break;
             }
             case 2: {
-                cout << "³ª¶ó ¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä : ";
+                cout << "ë‚˜ë¼ ëª…ì„ ì…ë ¥í•˜ì„¸ìš” : ";
                 string name; cin >> name;
                 DLLdata.deleteDLLSorted(name);
-                cout << endl << "»èÁ¦°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù." << endl;
+                cout << endl << "ì‚­ì œê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 
                 break;
             }
             case 3: DLLdata.printDLLSorted(); break;
             case 4: IsOn = false; break;
-            default: cout << "´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+            default: cout << "ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
         }
     }
-    cout << "ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù." << endl;
+    cout << "í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
 }
